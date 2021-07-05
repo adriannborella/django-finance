@@ -1,0 +1,20 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$216000$bmh10Exe6WyQ$3RrTTWu6zXdlUQaI5uNvb8XMKWuxaw3oirZpMs2p7eA=",
+            "last_login": null,
+            "username": "equality",
+            "email": "equality@mail.com",
+            "first_name": "Equality",
+            "last_name": "Coop",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
+            "date_joined": "2021-01-02T16:20:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

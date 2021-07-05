@@ -1,0 +1,57 @@
+version: '3'
+
+services:  
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    environment:
+      - SECRET_KEY=0c63a75b845e4f7d01107d852e4c2485c51a50aaaa94fc61995e71bbee983a2ac3713831264adb47fb6bd1e058d5f004
+      - PG_DB_NAME=db_develop
+      - PG_USER=equality
+      - PG_PASS=desarrollo
+      - PG_HOST=db
+      - PG_PORT=5432
+      - ALLOWED_HOSTS=*, 127.0.0.1, localhost
+      - SECURE_HSTS_SECONDS=15
+      - SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+      - SECURE_SSL_REDIRECT=False
+      - CSRF_COOKIE_SECURE=True
+      - SESSION_COOKIE_SECURE=True
+      - SECURE_HSTS_PRELOAD=True
+    volumes:
+      - ./project:/home/app/web
+      - eq_static_volume:/home/app/web/static
+      - eq_media_volume:/home/app/web/uploads
+    ports:
+      - "10000:8000"
+    stdin_open: true
+  db:
+    image: "postgres:13.3"
+    environment:
+      - POSTGRES_DB=db_develop
+      - POSTGRES_USER=equality
+      - POSTGRES_PASSWORD=desarrollo
+    stdin_open: true
+    ports:
+      - "10001:5432"
+    volumes:
+      - eq_postgres_volume:/var/lib/mysql
+  nginx:    
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    ports:
+      - 10002:80
+    volumes:
+      - eq_static_volume:/home/app/web/static
+      - eq_media_volume:/home/app/web/uploads
+    depends_on:
+      - django
+
+volumes:
+  eq_postgres_volume:
+  eq_static_volume:
+  eq_media_volume:

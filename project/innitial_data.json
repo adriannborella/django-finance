@@ -1,0 +1,76 @@
+[
+{
+    "model": "kinesiologia.diagnostics",
+    "pk": 1,
+    "fields": {
+        "name": "Rinitis"
+    }
+},
+{
+    "model": "kinesiologia.doctor",
+    "pk": 1,
+    "fields": {
+        "name": "Picatto"
+    }
+},
+{
+    "model": "kinesiologia.patient",
+    "pk": 1,
+    "fields": {
+        "name": "German",
+        "last_name": "Chiocchia",
+        "address": "Corrientes 2933",
+        "doctor_id": 1,
+        "diagnostics_id": 1
+    }
+},
+{
+    "model": "micuartel.fiscalcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Monotributo",
+        "description": "Monotributista"
+    }
+},
+{
+    "model": "micuartel.address",
+    "pk": 1,
+    "fields": {
+        "street": "Corrientes",
+        "number": 2933,
+        "city": "Rosario"
+    }
+},
+{
+    "model": "micuartel.firedepartment",
+    "pk": 1,
+    "fields": {
+        "name": "Cuartel1",
+        "cuit": "123123123123",
+        "regional_assigned": "Santa Fe",
+        "foundation_date": "2021-06-23",
+        "operation_date": "2021-06-23",
+        "legal_status_number": 1,
+        "date_of_legal_status": "2021-06-23",
+        "address": 1,
+        "fiscal_category": 1,
+        "icon_firedepartment": false
+    }
+},
+{
+    "model": "micuartel.firedepartment",
+    "pk": 2,
+    "fields": {
+        "name": "Cuartel2",
+        "cuit": "1231231231234",
+        "regional_assigned": "Salta",
+        "foundation_date": "2021-06-24",
+        "operation_date": "2021-06-24",
+        "legal_status_number": 1,
+        "date_of_legal_status": "2021-07-24",
+        "address": 1,
+        "fiscal_category": 1,
+        "icon_firedepartment": false
+    }
+}
+]
